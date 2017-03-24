@@ -8,7 +8,7 @@ use Application\Repository\DoctrineConnectionFactory;
 use Application\Repository\TransactionRepository;
 use Application\Action\CreateTransactionAction;
 
-class CreateTransactionActionFactory implements FactoryInterface
+final class CreateTransactionActionFactory implements FactoryInterface
 {
     /**
      * @param ContainerInterface $container
@@ -17,8 +17,8 @@ class CreateTransactionActionFactory implements FactoryInterface
      * @return TransactionRepositoryon
      */
     public function __invoke(
-        ContainerInterface $container, 
-        $requestedName, 
+        ContainerInterface $container,
+        $requestedName,
         array $options = null
     ) {
         $config = $container->get('config');

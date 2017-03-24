@@ -2,10 +2,12 @@
 
 namespace Application\Action;
 
+use Zend\Diactoros\Response\JsonResponse;
 use Application\Entity\Transaction;
+use Application\Entity\TransactionMapper;
 use Application\Repository\TransactionRepository;
 
-class CreateTransactionAction
+final class CreateTransactionAction
 {
     private $repository;
 
@@ -16,12 +18,17 @@ class CreateTransactionAction
 
     public function __invoke($req, $res, $next)
     {
-        $transaction = new Transaction();
-        $transaction->fill(json_decode($req->getBody()), true);
+        $transactionMapper = new TransactionMapper();
+        $transaction = $transactionMapper->fromArray(
+            json_decode(
+                $req->getBody(), 
+                true)
+            );
 
-        $this->repository->persist($transaction);
+        $transaction = $this->repository->persist($transaction);
 
-        $res->getBody()->write('Hello, world!');
-        return $res;
+        return new JsonResponse(
+            $transactionMapper->toArray($transaction)
+        );
     }
 }

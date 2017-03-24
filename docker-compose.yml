@@ -14,7 +14,8 @@ services:
             - postgres
 
     php:
-        image: ricardotulio/php:5.6-fpm
+        image: ricardotulio/php:7.1-fpm
+        env_file: .env
         volumes:
             - ./:/usr/share/nginx/html/
         working_dir: /usr/share/nginx/html/
@@ -22,6 +23,8 @@ services:
     postgres:
         image: postgres:9.6.2
         env_file: .env
+        ports:
+            - 5432:5432
 
 volumes:
     db:

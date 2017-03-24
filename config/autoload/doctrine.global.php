@@ -7,7 +7,7 @@ return [
             'user'     => getenv('POSTGRES_USER'),
             'password' => getenv('POSTGRES_PASSWORD'),
             'host'     => getenv('POSTGRES_HOST'),
-            'dbname'   => getenv('POSTGRES_DBNAME')
+            'dbname'   => getenv('POSTGRES_DB')
         ]
     ]
 ];

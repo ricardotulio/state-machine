@@ -2,69 +2,73 @@
 
 namespace Application\Entity;
 
+use DateTime;
+use Application\Fillable;
+
 class Transaction
 {
-    use FillableTrait;
-
     private $id;
 
     private $type;
 
     private $status;
 
-    private $createdAt;
+    private $created;
 
-    private $updatedAt;
+    private $updated;
 
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function withId($id)
+    public function withId(string $id = null): self
     {
         $this->id = $id;
         return $this;
     }
 
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function withType($type)
+    public function withType(string $type): self
     {
         $this->type = $type;
         return $this;
     }
 
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    public function withStatus($status)
+    public function withStatus(string $status): self
     {
         $this->status = $status;
+        return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated(): ?DateTime
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
-    public function withCreatedAt($createdAt)
+    public function withCreated(DateTime $created): self
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
+        return $this;
     }
 
-    public function getUpdatedAt()
+    public function getUpdated(): ?DateTime
     {
-        return $this->updatedAt;
+        return $this->updated;
     }
 
-    public function withUpdatedAt($updatedAt)
+    public function withUpdated(DateTime $updated): self
     {
-        $this->updatedAt = $updatedAt;
+        $this->updated = $updated;
+        return $this;
     }
 }
