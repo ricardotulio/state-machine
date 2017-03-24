@@ -3,9 +3,10 @@
 return [
     'routes' => [
         [
-            'path' => '/',
-            'middleware' => \Application\Action\CreateTransactionAction::class,
-            'allowed_methods' => ['POST'],
+            'name' => 'transaction',
+            'path' => '/transaction/[{id}]',
+            'middleware' => \Application\Http\Api\V1\Rest\TransactionController::class,
+            'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
         ],
     ],
 ];

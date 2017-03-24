@@ -55,7 +55,7 @@ class Transaction
         return $this->created;
     }
 
-    public function withCreated(DateTime $created): self
+    public function withCreated(DateTime $created = null): self
     {
         $this->created = $created;
         return $this;
@@ -66,7 +66,7 @@ class Transaction
         return $this->updated;
     }
 
-    public function withUpdated(DateTime $updated): self
+    public function withUpdated(DateTime $updated = null): self
     {
         $this->updated = $updated;
         return $this;

@@ -1,14 +1,15 @@
 <?php
 
-namespace Application\Action;
+namespace Application\Http\Api\V1\Rest;
 
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Application\Repository\DoctrineConnectionFactory;
 use Application\Repository\TransactionRepository;
-use Application\Action\CreateTransactionAction;
+use Application\Entity\TransactionMapper;
+use Application\Api\V1\Resource\Transaction\CreateTransactionAction;
 
-final class CreateTransactionActionFactory implements FactoryInterface
+final class TransactionControllerFactory implements FactoryInterface
 {
     /**
      * @param ContainerInterface $container
@@ -24,10 +25,14 @@ final class CreateTransactionActionFactory implements FactoryInterface
         $config = $container->get('config');
         $dbConfig = $config['doctrine']['connection'];
 
-        return new CreateTransactionAction(
+        $mapper = new TransactionMapper();
+
+        return new TransactionController(
             new TransactionRepository(
-                \Doctrine\DBAL\DriverManager::getConnection($dbConfig)
-            )
+                \Doctrine\DBAL\DriverManager::getConnection($dbConfig),
+                $mapper
+            ),
+            $mapper
         );
     }
 }
