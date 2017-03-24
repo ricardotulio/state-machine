@@ -1,0 +1,27 @@
+{
+    "name": "ricardotulio/aopexample",
+    "authors": [
+        {
+            "name": "ricardotulio",
+            "email": "ledo.tulio@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "zendframework/zend-expressive": "^2.0",
+        "zendframework/zend-expressive-fastroute": "^2.0",
+        "zendframework/zend-servicemanager": "^3.3",
+        "zendframework/zend-config": "^3.1",
+        "zendframework/zend-stdlib": "^3.1",
+        "doctrine/dbal": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/Application/"
+        }
+    },
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8080 -t public/"
+    }
+}
