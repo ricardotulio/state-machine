@@ -1,5 +1,7 @@
 # State Machine
 
+[![Build Status](https://travis-ci.org/ricardotulio/state-machine.svg?branch=master)](https://travis-ci.org/ricardotulio/state-machine)[![Coverage Status](https://coveralls.io/repos/github/ricardotulio/state-machine/badge.svg?branch=master)](https://coveralls.io/github/ricardotulio/state-machine?branch=master)
+
 The propose of this project is provide an API to manage transactions between two endpoints. The operations between endpoints isn't provided, being necessary a mediator for this.
 
 ## Running this project
