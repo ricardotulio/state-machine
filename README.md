@@ -13,7 +13,7 @@ $ docker-compose up -d
 $ docker-compose exec php vendor/bin/phinx migrate -e development
 ```
 
-## Initiating a transaction
+## Initiating transactions
 
 By default, this project will run in `http://localhost:8080`. You can create a new transaction through the endpoint `/v1/transaction/`, as the following example: 
 
@@ -36,7 +36,7 @@ HTTP/1.1 201 Created
 }
 ```
 
-## Getting a transaction
+## Getting transactions
 
 Getting a existing transaction:
 
@@ -54,7 +54,7 @@ HTTP/1.1 200 Ok
 }
 ```
 
-## Updating a transaction
+## Updating transactions
 
 You can update transaction sending a PUT request, as the following example:
 
